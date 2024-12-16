@@ -6,7 +6,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class PostApiTests {
+public class PostApiTests extends TestBase {
 
     @DisplayName("Проверка создания пользователя")
     @Test
@@ -18,7 +18,7 @@ public class PostApiTests {
                 .contentType(JSON)
                 .body(user)
         .when()
-                .post("https://reqres.in/api/users/2")
+                .post("users/2")
         .then()
                 .log().status()
                 .log().body()
@@ -39,7 +39,7 @@ public class PostApiTests {
                 .contentType(JSON)
                 .body(user)
         .when()
-                .post("https://reqres.in/api/register")
+                .post("register")
         .then()
                 .log().status()
                 .log().body()
@@ -58,7 +58,7 @@ public class PostApiTests {
                 .contentType(JSON)
                 .body(user)
         .when()
-                .post("https://reqres.in/api/register")
+                .post("register")
         .then()
                 .log().status()
                 .log().body()

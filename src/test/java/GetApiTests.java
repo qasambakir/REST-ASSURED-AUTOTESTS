@@ -5,7 +5,7 @@ import static io.restassured.RestAssured.given;
 
 
 
-public class GetApiTests {
+public class GetApiTests extends TestBase {
 
     @DisplayName("Проверка стаус кода 404")
     @Test
@@ -13,7 +13,7 @@ public class GetApiTests {
         given()
                 .log().uri()
         .when()
-                .get("https://reqres.in/api/users/23")
+                .get("users/23")
         .then()
                 .log().status()
                 .log().body()
@@ -26,7 +26,7 @@ public class GetApiTests {
         given()
                 .log().uri()
         .when()
-                .get("https://reqres.in/api/users/2")
+                .get("users/2")
         .then()
                 .log().status()
                 .log().body()
