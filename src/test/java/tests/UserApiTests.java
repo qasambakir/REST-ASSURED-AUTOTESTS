@@ -23,7 +23,6 @@ public class UserApiTests extends TestBase {
                         .get("/users/2")
                         .then()
                         .spec(responseSpec200)
-                        .log().body()
                         .extract().jsonPath()
                         .getObject("data", UserData.class)
         );
@@ -46,7 +45,6 @@ public class UserApiTests extends TestBase {
                         .get("/users/23")
                         .then()
                         .spec(responseSpec404)
-                        .log().body()
         );
     }
 }
