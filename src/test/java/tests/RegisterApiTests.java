@@ -9,9 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static specs.BaseSpec.requestSpec;
-import static specs.BaseSpec.successResponseSpec;
-import static specs.BaseSpec.errorResponseSpec;
+import static specs.BaseSpec.*;
 
 @Tag("API-TEST")
 @DisplayName("Тестирование POST")
@@ -30,7 +28,7 @@ public class RegisterApiTests extends TestBase {
                         .when()
                         .post("/register")
                         .then()
-                        .spec(successResponseSpec)
+                        .spec(responseSpec200)
                         .extract().as(LoginResponseModel.class)
         );
 
@@ -50,7 +48,7 @@ public class RegisterApiTests extends TestBase {
                         .when()
                         .post("/register")
                         .then()
-                        .spec(errorResponseSpec)
+                        .spec(responseSpec400)
                         .extract().as(ErrorResponseModel.class)
         );
 
